@@ -28,7 +28,6 @@ async function getInventoryByClassificationId(classification_id) {
 /* ****************************
 * Get inv details by inventory_id
 * ****************************/
-
 async function getModelById(model_id) {
   try {
     const data = await pool.query(
