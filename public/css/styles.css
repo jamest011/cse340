@@ -140,6 +140,11 @@ nav ul li a {
   padding: 6px;
 }
 
+/* vehicle detail Section */
+.bold {
+  font-weight: bold;
+}
+
 /***** Medium Screen Size *****/
 
 @media (min-width: 800px) {
