@@ -19,6 +19,10 @@ h4 {
   font-size: 18.72px;
 }
 
+ul {
+  list-style-type: none;
+}
+
 main {
   margin-left: 10px;
 }
@@ -56,7 +60,6 @@ nav ul {
   display: flex;
   justify-content: space-around;
   background-color: black;
-  list-style-type: none;
   padding: 0;
   margin-top: 0;
   color: white;
@@ -69,6 +72,11 @@ nav ul li {
 nav ul li a {
   color: white;
   text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: black;
+  background-color: white;
 }
 
 /***** Call to Action (cta) *****/
@@ -140,9 +148,51 @@ nav ul li a {
   padding: 6px;
 }
 
-/* vehicle detail Section */
+/* Car Classification Display */
+#inv-display {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 15px;
+  padding-left: 0;
+  margin: 15px;
+}
+
+.inv-card {
+  border: 2px solid black;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  height: auto;
+}
+
+/* Individual Vehicle Display */
+.vehicle-cont {
+  padding: 20px 10px 50px 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.vehicle-cont img {
+  padding: 10px;
+  height: auto;
+  width: 100%;
+}
+
+.vehicle-details {
+  font-size: 1.2em;
+}
 .bold {
-  font-weight: bold;
+  font-weight: bolder;
+  background-color: #00b1d0;
+}
+
+/* error */
+#error-title {
+  width: 100%;
 }
 
 /***** Medium Screen Size *****/
@@ -191,14 +241,13 @@ nav ul li a {
   .upgrades-reviews .upgrades {
     grid-area: 1 / 1 / 1 / 2;
   }
-  #invDisplay {
+  #inv-display {
     grid-template-columns: 1fr 1fr;
   }
-  .singleVehicle {
+  .vehicle-cont {
+    padding: 20px 10px 50px 0px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-
-    flex-wrap: wrap;
   }
 }
 
@@ -215,7 +264,7 @@ nav ul li a {
   .reviews ul li {
     line-height: 45px;
   }
-  #invDisplay {
+  #inv-display {
     grid-template-columns: 1fr 1fr 1fr;
   }
   
