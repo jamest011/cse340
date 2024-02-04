@@ -7,7 +7,8 @@ const express = require("express");
 const router = new express.Router();
 const accountController = require("../controllers/accountController");
 const utilities = require("../utilities");
-const validate = require('../utilities/account-validation');
+const regValidate = require('../utilities/account-validation');
+const validate = require("../utilities/account-validation")
 
 /* ***********************************
  * Deliver Login View
@@ -30,8 +31,8 @@ router.get(
  ************************************ */
 router.post(
   "/register",
-  validate.registrationRules(),
-  validate.checkRegData,
+  regValidate.registrationRules(),
+  regValidate.checkRegData,
   utilities.handleErrors(accountController.registerAccount),
 );
 
