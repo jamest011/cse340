@@ -50,6 +50,26 @@ validate.registrationRules = () => {
   ];
 };
 
+/*  **********************************
+ *  Login Data Validation Rules
+ * ********************************* */
+validate.loginRules = () => {
+  return [
+    // valid email is required and cannot already exist in the DB
+    body("account_email")
+      .trim()
+      .isEmail()
+      .normalizeEmail() // refer to validator.js docs
+      .withMessage("A valid email is required."),
+
+    // password is required and must be strong password
+    body("account_password")
+      .trim()
+      .isLength({ min: 1 })
+      .withMessage("Please enter a valid password"),
+  ]
+}
+
 /* ******************************
  * Check data and return errors or continue to registration
  * ***************************** */
