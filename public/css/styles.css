@@ -185,6 +185,7 @@ nav ul li a:hover {
 .vehicle-details {
   font-size: 1.2em;
 }
+
 .bold {
   font-weight: bolder;
   background-color: #00b1d0;
@@ -193,6 +194,61 @@ nav ul li a:hover {
 /* error */
 #error-title {
   width: 100%;
+}
+
+/* LOGIN AND REGISTER PAGES */
+.login-title {
+  font-size: 2.2em;
+}
+
+.form-box {
+  background-color: #07b2d3;
+  padding: 1em;
+  max-width: 450px;
+}
+
+.form-box div {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+}
+
+form input {
+  font-size: .9em;
+  padding: 6px;
+}
+
+.form-btn {
+  background-color: white;
+  margin-top: 5px;
+  padding: 5px 20px;
+  font-size: 1rem;
+}
+
+.form-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.register {
+  padding-top: 20px;
+  font-size: 1em;
+  display: flex;
+}
+
+.register a {
+  text-decoration: underline;
+}
+
+.register a:hover {
+  color: white;
+}
+
+/*** Vehicle Management ***/
+.management {
+  display: grid;
+  gap: 1em;
+  padding: 1em;
 }
 
 /***** Medium Screen Size *****/
