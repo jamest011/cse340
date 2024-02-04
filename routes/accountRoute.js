@@ -30,8 +30,8 @@ router.get(
  ************************************ */
 router.post(
   "/register",
-  regValidate.registrationRules(),
-  regValidate.checkRegData,
+  validate.registrationRules(),
+  validate.checkRegData,
   utilities.handleErrors(accountController.registerAccount),
 );
 
