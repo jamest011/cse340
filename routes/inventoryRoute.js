@@ -23,11 +23,11 @@ router.get("/", invController.buildManagement);
 // Route to build add-classification view
 router.get("/add-classification", invController.BuildAddClassification);
 
-/* ***********************
+/* ***********************************
  * Unit 4 Add the new Classification
  * Assignment 4
  * Process the add classification data
- *************************/
+ * **********************************/
 router.post(
   "/add-classification",
   regValidate.classificationRules(),

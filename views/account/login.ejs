@@ -1,4 +1,3 @@
-
 <% if (title) { %>
     <h1><%= title %></h1>
     <% } else {
@@ -6,7 +5,6 @@
 } %>
 
 <%- messages() %>
-
 
 <!-- Login Form -->
 <div class="form-box">
@@ -17,22 +15,15 @@
             required value="<%= locals.account_email %>"
             > 
         </div>
-
         <div class="password">
             <label for="login_password">Password: </label>
             <input id="login_password" name="account_password" type="password" placeholder="Password" 
-            required
-            > 
-            
+            required>            
         </div>
-
         <button type="submit" class="form-btn">Login</button>
-
         <div class="register">
             <p>No account? </p>
             <a href="/account/register">Register here</a>
-            
         </div>
     </form>
-
 </div>

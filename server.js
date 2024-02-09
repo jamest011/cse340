@@ -8,14 +8,16 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
-const app = express();
-const static = require("./routes/static");
 const baseController = require("./controllers/baseController");
-const inventoryRoute = require("./routes/inventoryRoute");
 const utilities = require("./utilities");
 const session = require("express-session");
 const pool = require("./database/");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const static = require("./routes/static");
+const inventoryRoute = require("./routes/inventoryRoute");
+
+const app = express();
 
 /* ******************
  * Middleware
@@ -43,6 +45,8 @@ app.use(function (req, res, next) {
 // Unit 4, Process Registration Activity
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(cookieParser());
+app.use(utilities.checkJWTToken);
 
 /* *************************
  * View Engine and Templates
@@ -53,12 +57,12 @@ app.set("layout", "./layouts/layout"); // not at views root
 
 /* ***********
  * Routes
- ********** */
+ * ********* */
 app.use(static);
 // Index route
 app.get("/", utilities.handleErrors(baseController.buildHome));
 // Inventory routes
-app.use("/inv", inventoryRoute);
+app.use("/inv", utilities.handleErrors(require("./routes/inventoryRoute")))
 // Error route for testing/assignment 3
 app.get("/error", utilities.handleErrors(baseController.buildError));
 // Account routes - Unit 4, activity

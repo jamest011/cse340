@@ -8,7 +8,7 @@ const router = new express.Router();
 const accountController = require("../controllers/accountController");
 const utilities = require("../utilities");
 const regValidate = require('../utilities/account-Validation.js');
-const validate = require("../utilities/account-Validation.js")
+const validate = require("../utilities/account-Validation.js");
 
 /* ***********************************
  * Deliver Login View
@@ -25,6 +25,16 @@ router.get(
   utilities.handleErrors(accountController.buildRegister),
 );
 
+/* ***********************************
+ * Deliver account view
+ * Unit 5 - JWT Authorization activity
+ * ******************************** */
+router.get(
+  "/",  
+  utilities.checkLogin,
+  utilities.handleErrors(accountController.buildManagement)
+);
+
 /* *************************************
  * Process Registration
  * Unit 4, process registration activity
@@ -37,8 +47,12 @@ router.post(
 );
 
 // Process the login attempt
-router.post("/login", (req, res) => {
-  res.status(200).send("login process");
-});
+// Process the login request
+router.post(
+  "/login",
+  regValidate.loginRules(),
+  regValidate.checkLoginData,
+  utilities.handleErrors(accountController.accountLogin)
+)
 
 module.exports = router;
