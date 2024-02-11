@@ -6,16 +6,6 @@
 
 <%- messages()  %>
 
-<!-- Registration Error Display -->
-<% if (errors) { %>
-    <ul class="notice">
-   <% errors.array().forEach(error => { %>
-     <li><%= error.msg %></li>
-  <%  }) %>
-   </ul>
-<% } %>
-
-
 <!-- Register Form -->
 <div class="form-box">
     <form action="/account/update" method="post">
@@ -44,7 +34,6 @@
 
         <button type="submit" class="form-btn">Update Account</button>
 
-        
     </form>
 </div>
 <div class="form-box">
@@ -58,15 +47,12 @@
             <p>By filling out the field above, your account password will be permanently changed.</p>
 
         </div>
-
-
         <input type="hidden" name="account_id"
         <% if(locals.accountData.account_id) { %> 
             value="<%= locals.accountData.account_id %>"
         <% } %>>
 
         <button type="submit" class="form-btn">Update Password</button>
-
         
     </form>
 </div>

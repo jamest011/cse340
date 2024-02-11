@@ -244,12 +244,141 @@ form input {
   color: white;
 }
 
-/*** Vehicle Management ***/
+/*** Remove the arrows on number inputs ***/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* ***********************
+* INPUT VALIDATION STYLING
+* ********************* */
+input:required:invalid, input:focus:invalid {
+  /* Invalid input */
+  border: 2px solid red;
+  background-color: rgb(245, 205, 205);
+  
+}
+textarea:required:invalid, textarea:focus:invalid {
+  /* Invalid input */
+  border: 2px solid red;
+  background-color: rgb(245, 205, 205);
+  
+}
+
+/* Valid Input */
+input:required:valid {
+  border: 2px solid green;
+  background-color: rgb(210, 244, 210);
+}
+textarea:required:valid {
+  border: 2px solid green;
+  background-color: rgb(210, 244, 210);
+}
+
+/* *********************
+* ADD INVENTORY FORM BOX
+************************ */
+textarea {
+  min-height: 300px;
+  font-size: 1.3em;
+}
+.inv-label label {
+  font-size: 1.2em;
+}
+
+select {
+  background-color: white;
+  margin-top: 15px;
+  padding: 5px 20px 5px 5px;
+  font-size: 1rem;
+}
+
+select:hover{
+  background-color: black;
+  color: white;
+}
+
+/* *********************
+* ADD MANAGEMENT FORM BOX
+************************ */
 .management {
   display: grid;
   gap: 1em;
+  background-color: #07b2d3;
+  text-align: center;
   padding: 1em;
+  margin: 8%;
+  max-width: 400px;
 }
+.management a {
+  font-size: larger;
+  background-color: white;
+  padding: 5px;
+  justify-content: center;
+}
+.management a:hover {
+  background-color: black;
+  color: white;
+}
+
+/* ******************************
+* ACCOUNT MANAGEMENT
+********************************* */
+.account-management {
+  background-color: #07b2d3;
+  margin: 40px auto;
+  max-width: 400px;
+  padding: 10px 10px 30px 10px;
+}
+
+.account-welcome {
+  margin-bottom: auto;
+}
+
+.account-management a {
+  background-color: white;
+  margin: 0 auto;
+  font-size: larger;
+  color: black;
+  width: fit-content;
+  padding: 10px 20px;
+}
+
+.account-management a:hover {
+  font-size: larger;
+  color: white;
+  background-color: black;
+}
+
+/***** Manage Inventory - Table *****/
+.manage-inventory th {
+  padding-top: 12px;
+  padding-bottom: 1em;
+  text-align: left;
+  font-size: x-large;
+}
+
+.manage-inventory td a {
+  padding: 2px 20px;
+  border: 1px solid black;
+}
+
+.manage-inventory td a:hover {
+  background-color: black;
+  color: white;
+}
+
+.manage-inventory td {
+  font-size: large;
+  padding-right: 10px;
+}
+
+.select-list select {
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
 
 /***** Medium Screen Size *****/
 
