@@ -182,27 +182,28 @@ invCont.getInventoryJSON = async (req, res, next) => {
  *  Unit 5 update part 1
  * ************************** */
 invCont.editInventoryView = async function (req, res, next) {
-  const inv_id = parseInt(req.params.inv_id)
+  const model_id = req.params.inv_id
   let nav = await utilities.getNav()
-  const itemData = await invModel.getModelById(inv_id)
+  const itemData = await invModel.getModelById(model_id)
+  const selectedItemData = itemData[0];
   const selectList = await utilities.getClassifications(itemData.classification_id)
-  const itemName = `${itemData.inv_make} ${itemData.inv_model}`
+  const itemName = `${selectedItemData.inv_make} ${selectedItemData.inv_model}`
   res.render("./inventory/edit-inventory", {
     title: "Edit " + itemName,
     nav,
     selectList: selectList,
     errors: null,
-    inv_id: itemData.inv_id,
-    inv_make: itemData.inv_make,
-    inv_model: itemData.inv_model,
-    inv_year: itemData.inv_year,
-    inv_description: itemData.inv_description,
-    inv_image: itemData.inv_image,
-    inv_thumbnail: itemData.inv_thumbnail,
-    inv_price: itemData.inv_price,
-    inv_miles: itemData.inv_miles,
-    inv_color: itemData.inv_color,
-    classification_id: itemData.classification_id
+    inv_id: selectedItemData.inv_id,
+    inv_make: selectedItemData.inv_make,
+    inv_model: selectedItemData.inv_model,
+    inv_year: selectedItemData.inv_year,
+    inv_description: selectedItemData.inv_description,
+    inv_image: selectedItemData.inv_image,
+    inv_thumbnail: selectedItemData.inv_thumbnail,
+    inv_price: selectedItemData.inv_price,
+    inv_miles: selectedItemData.inv_miles,
+    inv_color: selectedItemData.inv_color,
+    classification_id: selectedItemData.classification_id
   })
 }
 
